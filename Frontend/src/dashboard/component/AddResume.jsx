@@ -21,6 +21,7 @@ function AddResume() {
 
       const onCreate=()=>{
       const uuid=uuidv4();
+      console.log(resumeTitle,uuid);
       const data={
         data:{
             title:resumeTitle,
@@ -33,13 +34,13 @@ function AddResume() {
       GlobalApi.CreateNewResume()
     }
   return (
-    <div>
+    <div className='my-8'>
         <div className='p-14 border items-center flex 
         justify-center bg-secondary rounded-lg h-[280px]
         hover:scale-105 transition-all hover:shadow-md 
-        cursor-pointer border-dashed '
+        cursor-pointer border-dashed'
         onClick={()=>setOpenDialog(true)}>
-         <SquarePlus/>
+         <SquarePlus size={38} className="text-gray-400"/>
         </div>
         <Dialog open={openDialog} >
        
