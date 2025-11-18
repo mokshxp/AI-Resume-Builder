@@ -73,6 +73,6 @@ function AddResume() {
         </Dialog>
     </div>
   )
+ }
 }
-  
-export default AddResume
+export default AddResume 
