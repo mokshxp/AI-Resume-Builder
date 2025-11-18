@@ -18,8 +18,10 @@ function AddResume() {
     const [openDialog, setOpenDialog] = useState(false)
     const [resumeTitle, setResumeTitle] = useState();
     const{user}=useUser();
+    const [loading,setloading]=useState(false);
 
       const onCreate=()=>{
+        setloading(true);
       const uuid=uuidv4();
       console.log(resumeTitle,uuid);
       const data={
@@ -31,8 +33,15 @@ function AddResume() {
         }
       }
     
-      GlobalApi.CreateNewResume()
-    }
+      GlobalApi.CreateNewResume(data).then(()=>{
+        console.log(resp);
+        if(resp){
+          setloading(false);
+        }
+      },(error)=>{
+        console.log(error);
+        setloading(false);
+      })
   return (
     <div className='my-8'>
         <div className='p-14 border items-center flex 
@@ -65,5 +74,5 @@ function AddResume() {
     </div>
   )
 }
-
+  
 export default AddResume
